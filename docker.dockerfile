@@ -1,13 +1,13 @@
 #Base Image
-FROM Centos
-LABEL Mintainer "Venkat"
+FROM openjdk
+LABEL maintainer="Venkat"
 
 #App Layer-->Dependencies
 
-RUN demo2
-WORKDIR demo2
+RUN mkdir /docker-spring-boot
+WORKDIR docker-spring-boot
 RUN yum install java -y
-ENV
+copy taeget*/docker-spring-boot-0.0.1-SNAPSHOT.jar
 
 #Entry point
-ENTRYPOINT ["echo","Hello"]
+ENTRYPOINT ["docker-spring-boot"]
